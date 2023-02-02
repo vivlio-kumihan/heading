@@ -19,4 +19,14 @@ body {
   width: 60%;
   height: 100vh;
   margin: 0 auto;
+  padding-top: 10rem;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  padding: .5rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+  border-bottom: 1px solid #333;
+  border-left: .5rem solid rgb(160, 0, 0);
 }
