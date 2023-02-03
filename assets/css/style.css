@@ -23,10 +23,30 @@ body {
 }
 
 h2 {
-  margin: 0 0 1rem;
-  padding: .5rem 1rem;
-  font-size: 1.1rem;
+  position: relative;
+
+  display: inline-block;
+
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
   font-weight: 900;
-  border-bottom: 1px solid #333;
-  border-left: .5rem solid rgb(160, 0, 0);
+  color: #fff;
+  background-color: rgb(0, 140, 255);
+  border-radius: .5rem;
+}
+
+h2::after {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 2rem;
+
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-right: 1rem solid transparent;
+  border-left: 1rem solid transparent;
+  border-top: 1.5rem solid rgb(0, 140, 255);
+  border-bottom: 0;
 }
