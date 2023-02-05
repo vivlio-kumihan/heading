@@ -19,7 +19,21 @@ body {
   width: 60%;
   height: 100vh;
   margin: 0 auto;
-  padding-top: 10rem;
+  padding-top: 5rem;
+}
+
+section {
+  width: 100%;
+}
+
+section:not(:first-of-type) {
+  margin-top: 3rem;
+}
+
+.reference {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h2 {
@@ -28,26 +42,56 @@ h2 {
   display: inline-block;
 
   margin-bottom: 2rem;
-  padding: 1rem 2rem;
+  padding: 0rem 2rem .5rem;
   font-size: 1.2rem;
   font-weight: 900;
-  color: #fff;
-  background-color: rgb(0, 140, 255);
-  box-shadow: .1rem .2rem .5rem #aaa;
+  color:rgb(0, 140, 255);
+  border-bottom: 2px solid rgb(0, 140, 255);
 }
 
-h2::before {
+h2::before, h2::after {
   position: absolute;
-  /* bottom: -1.5rem; */
-  top: 100%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
 
   content: "";
   width: 0;
   height: 0;
   border-style: solid;
-  /* border-right: 1rem solid transparent; */
-  border-left: 1rem solid transparent;
-  border-top: 1rem solid rgb(0, 60, 105);
-  border-bottom: 0;
+  border-width: 2rem 1rem 0rem;
+}
+
+h2::before {
+  bottom: -2rem;
+  border-color: rgb(0, 140, 255) transparent transparent;
+}
+
+
+h2::after {
+  bottom: -1.65rem;
+  border-color: #fff transparent transparent;
+}
+
+.box {
+  width: 0rem;
+  height: 0rem;
+}
+
+.box:not(:first-of-type) {
+  margin-top: 2rem;
+}
+
+.layer-top {
+  margin-top: 1rem;
+  background-color: rgb(0, 0, 80);
+  border-top: solid 5rem rgb(0, 140, 255);
+  border-right: solid 2.5rem transparent;
+  border-left: solid 2.5rem transparent;
+}
+
+.layer-second {
+  background-color: rgb(0, 0, 80);
+  border-top: solid 5rem #fff;
+  border-right: solid 2.5rem transparent;
+  border-left: solid 2.5rem transparent;
 }
