@@ -31,32 +31,17 @@ section:not(:first-of-type) {
 }
 
 h2 {
-  position: relative;
-
-  display: inline-block;
-
-  margin-bottom: 2rem;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
+  padding-bottom: .8rem;
+  font-size: 1.1rem;
   font-weight: 700;
   line-height: 1.2;
-  border: 1px solid rgb(0, 140, 255);
-  border-radius: .3rem;
+  border-bottom: 1px solid rgb(0, 140, 255);
 }
 
-h2::before {
-  position: absolute;
-  content: "heading";
-  top: -.5rem;
-  left: 1.5rem;
-  padding: 0 .5rem;
-  font-size: .9rem;
-  font-weight: 400;
+h2 span {
+  margin-bottom: .5rem;
+  display: block;
+  font-size: .8rem;
+  color: #999;
   text-transform: uppercase;
-  background-color: #fff;
-
-
-
-
 }
-
