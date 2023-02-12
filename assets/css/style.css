@@ -11,60 +11,84 @@ body {
 }
 
 .container {
+  max-width: 1000px;
+  height: 50vh;
+  margin: 0 auto;
+  background-color: #eee;
+}
+
+.flex-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-
-  width: 60%;
-  height: 100vh;
-  margin: 0 auto;
-  padding-top: 5rem;
+  justify-content: center;
 }
 
-section {
+h1 {
+  position: relative;
+
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: capitalize;
+  background: #dfefff;
+  border-radius: 1rem;
+}
+
+/* display: flex;で内包されると、 */
+/* 本来はblock特性を持っているはずなのにinline特性に変質する。 */
+/* つまり、横幅が内容の幅に追従する。 */
+/* これを回避する方法は、width: 100%;と指定する。 */
+
+h1 {
+  margin-top: 2rem;
+  padding: 1.5rem 2.5rem;
   width: 100%;
 }
 
-section:not(:first-of-type) {
-  margin-top: 3rem;
-}
-
-h2 {
-  position: relative;
-  overflow: hidden;
-
-  /* display: inline-block; */
-  margin-bottom: .7rem;
-  padding: 1rem 2rem 1rem 5rem;
-  border: 1px solid rgb(0, 140, 255);
-}
-
-h2:not(:first-of-type) {
-  margin-top: 2.5rem;
-}
-
-h2::before {
+h1.position-absolute::before {
   position: absolute;
-  top: -100%;
-  left: -2rem;
-
-  content: "";
-
-  width: 6rem;
-  height: 300%;
-  background-color: rgb(0, 140, 255);
-  transform: rotate(25deg);
-}
-
-h2 span {
-  position: absolute;
-  top: 0rem;
-  left: .9rem;
+  /* width, height値を外側箱からの内寸の半分を目安に設定する。 */
+  top: 1rem;
+  left: 1rem;
   
-  font-family: 'Anton', sans-serif;
-  font-size: 2rem;
-  font-weight: 900;
-  color: #fff;
-  z-index: 100;
+  content: "";
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  border: .15rem dashed #fff;
+  border-radius: .5rem;
+}
+
+h1.position-absolute::after {
+  position: absolute;
+  
+  content: "";
+  top: 0rem;
+  left: 0rem;
+  
+  border-width: 0 0 2rem 2rem;
+  border-style: solid;
+  border-color: #fff #eee #a8d4ff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+/* box-shadowで内側罫線 */
+/* box-shadowでやるとpaddingした分だけ囲みが含有している大枠の領域をはみ出てしまう */
+h1.box-shadow {
+  padding: 0.2rem 0.5rem;
+  color: #454545;
+  box-shadow: 0 0 0 1rem #dfefff;
+  border: dashed .15rem white;
+}
+
+h1.box-shadow:after {
+  position: absolute;
+
+  content: '';
+  top: -1.15rem;
+  left: -1.15rem;
+
+  border-width: 0 0 2rem 2rem;
+  border-style: solid;
+  border-color: #fff #fff #a8d4ff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
