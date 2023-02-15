@@ -12,83 +12,30 @@ body {
 
 .container {
   max-width: 1000px;
+  padding: 0rem 2rem;
   height: 50vh;
-  margin: 0 auto;
-  background-color: #eee;
+  margin: 10rem auto 0;
 }
 
-.flex-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-h1 {
+h2 {
   position: relative;
 
-  font-size: 2rem;
-  font-weight: 900;
-  text-transform: capitalize;
-  background: #dfefff;
-  border-radius: 1rem;
+  padding:0 0 .5rem .5rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 700;
+  border-bottom: .3rem solid #ddd;
 }
 
-/* display: flex;で内包されると、 */
-/* 本来はblock特性を持っているはずなのにinline特性に変質する。 */
-/* つまり、横幅が内容の幅に追従する。 */
-/* これを回避する方法は、width: 100%;と指定する。 */
-
-h1 {
-  margin-top: 2rem;
-  padding: 1.5rem 2.5rem;
-  width: 100%;
-}
-
-h1.position-absolute::before {
+h2::before {
   position: absolute;
-  /* width, height値を外側箱からの内寸の半分を目安に設定する。 */
-  top: 1rem;
-  left: 1rem;
-  
+
   content: "";
-  width: calc(100% - 2rem);
-  height: calc(100% - 2rem);
-  border: .15rem dashed #fff;
-  border-radius: .5rem;
+  bottom: 0rem;
+  /* bottom: -0.3rem; */
+  left: 0;
+  width: 20%;
+  height: .3rem;
+  background-color: rgb(129, 171, 254);
 }
 
-h1.position-absolute::after {
-  position: absolute;
-  
-  content: "";
-  top: 0rem;
-  left: 0rem;
-  
-  border-width: 0 0 2rem 2rem;
-  border-style: solid;
-  border-color: #fff #eee #a8d4ff;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-}
-
-/* box-shadowで内側罫線 */
-/* box-shadowでやるとpaddingした分だけ囲みが含有している大枠の領域をはみ出てしまう */
-h1.box-shadow {
-  padding: 0.2rem 0.5rem;
-  color: #454545;
-  box-shadow: 0 0 0 1rem #dfefff;
-  border: dashed .15rem white;
-}
-
-h1.box-shadow:after {
-  position: absolute;
-
-  content: '';
-  top: -1.15rem;
-  left: -1.15rem;
-
-  border-width: 0 0 2rem 2rem;
-  border-style: solid;
-  border-color: #fff #fff #a8d4ff;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-}
