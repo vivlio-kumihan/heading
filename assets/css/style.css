@@ -20,22 +20,20 @@ body {
 h2 {
   position: relative;
 
-  padding:0 0 .5rem .5rem;
-  font-size: 1rem;
-  line-height: 1rem;
+  padding: 1rem 1rem 1rem 2.5rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  border-bottom: .3rem solid #ddd;
+  background-color: #eaf5f9;
+  border-radius: .3rem;
 }
 
 h2::before {
   position: absolute;
+  top: 20%;
+  left: .8rem;
 
   content: "";
-  bottom: 0rem;
-  /* bottom: -0.3rem; */
-  left: 0;
-  width: 20%;
-  height: .3rem;
-  background-color: rgb(129, 171, 254);
+  border-left: 1rem solid #27acd9;
+  height: 60%;
+  border-radius: .5rem;
 }
-
