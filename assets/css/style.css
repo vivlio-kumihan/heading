@@ -20,20 +20,32 @@ body {
 h2 {
   position: relative;
 
-  padding: 1rem 1rem 1rem 2.5rem;
-  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  background-color: #eaf5f9;
-  border-radius: .3rem;
+  text-align: center;
+  background-color: #f4fbfd;
+}
+
+h2::before,
+h2::after {
+  position: absolute;
+  
+  content: "";
+  width: 2.5rem;
+  height: 3rem;
 }
 
 h2::before {
-  position: absolute;
-  top: 20%;
-  left: .8rem;
+  top: 0;
+  left: 0;
+  border-top: solid 3px #27acd9;
+  border-left: solid 3px #333;
+}
 
-  content: "";
-  border-left: 1rem solid #27acd9;
-  height: 60%;
-  border-radius: .5rem;
+h2::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: solid 3px #27acd9;
+  border-right: solid 3px #333;
 }
