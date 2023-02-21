@@ -11,32 +11,51 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   max-width: 1000px;
+  height: 60vh;
+
+  /* max-width: 1000px;
+
   padding: 0rem 2rem;
   height: 50vh;
-  margin: 10rem auto 0;
+  margin: 20rem auto 0;
+  text-align: center; */
 }
 
 h2 {
+  display: inline-block;
+
   position: relative;
 
-  padding: .5rem .75rem;
-  font-size: 1.3rem;
-  font-weight: 700;
-  /* text-align: center; */
-  background-color: #f4fbfd;
-  border: 1px solid #27acd9;
-  border-left: 3rem solid #27acd9;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+h2::before,
+h2::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  content: "";
+  width: 3rem;
+  height: 2px;
+  background-color: #27acd9;
 }
 
 h2::before {
-  position: absolute;
-
-  content: "\f0eb";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  color: #fff;
-  top: 50%;
-  transform: translateY(-50%);
-  left: -2rem;
+  left: -2em;
+  transform: rotate(60deg);
 }
+
+h2::after {
+  right: -2em;
+  transform: rotate(-60deg);
+}
+
+
