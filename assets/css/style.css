@@ -11,14 +11,6 @@ body {
 }
 
 .container {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  max-width: 1000px;
-  height: 60vh; */
-
   max-width: 1000px;
 
   padding: 0rem 2rem;
@@ -27,22 +19,9 @@ body {
 }
 
 h2 {
-  position: relative;
-
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-h2::before {
-  position: absolute;
-  bottom: 0;
-  left: calc(50%);
-  transform: translateX(-50%);
-
-  content: "";
-  background-color: #27acd9;
-  width: 5rem;
-  height: 5px;
+  padding: 0.5em;
+  color: #010079;
+  text-shadow: 0 0 5px white;
+  /* ストライプの角度、開始色、開始色＋開始色の終了地点、２色目の色＋２色目の開始地点、２色目の終了地点 */
+  background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px, #e9f4ff 3px, #e9f4ff 7px);
 }
