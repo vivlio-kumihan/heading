@@ -18,45 +18,174 @@ body {
   background-color: #eee;
 }
 
-.remove-letter-spacing {
-  letter-spacing: normal;
-}
-
-dl {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+.flexible-three {
   width: 100%;
-  gap: 1rem;
+  height: 70vh;
+  margin-top: 10rem;
 }
 
-.wrapper dt {
-  position: relative;
+.container .flexible-three picture {
+  border: none;
 }
 
-.wrapper h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  font-size: .9rem;
-  font-weight: 600;
-  text-align: center;
-  letter-spacing: .5rem;
-  color: #fff;
-  text-shadow: 0 0 10px #333;
-}
-
-.wrapper picture {
-  display: block;
-  position: relative;
-  padding: .25rem;
-  width: 100%;
-  height: 100%;
+.container .flexible-three dt {
+  background: linear-gradient(#777 0 0) top,
+  linear-gradient(#777 0 0) left,
+  linear-gradient(#777 0 0) bottom,
+  linear-gradient(#777 0 0) right;
+  background-size: var(--d, 0) 1px, 1px var(--d, 0);
+  background-repeat: no-repeat;
+  transition: 0.5s;
   border: 1px solid #ccc;
+}
+
+.container .flexible-three dt:hover {
+  --d: 100%;
+}
+
+/* -------------------------------------------------------- */
+
+.flexible-two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+}
+
+.allsides-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 20rem;
+  /* linear-gradientの性質を使った解決方法。
+  センターセンターから伸びる色が配色されて性質 */
+  background: linear-gradient(blue 0 0) top,
+              linear-gradient(blue 0 0) left,
+              linear-gradient(blue 0 0) bottom,
+              linear-gradient(blue 0 0) right;
+  /* 背景画像の横罫線を指定
+  widthについて、カスタムプロパティ
+  『--d』が定義されない場合は『0px』
+  hightについては、『1px』の設定。*/
+  /* 次の、背景画像の縦罫線を指定
+  widthについて、『1px』の設定。
+  カスタムプロパティ『--d』が定義されない場合は
+  hightについては、『0px』の設定*/
+  /* なお、変数『--d』は予約語。変更できない。 */
+  background-size: var(--d, 0) 1px, 1px var(--d, 0);
+  background-repeat: no-repeat;
+  border: 1px solid #333; 
+  transition: 0.5s;
+}
+
+.allsides-3:hover {
+  --d: 100%;
+}
+
+.allsides-3 > picture {
+  display: block;
+  width: calc(100% - 1rem);
+  height: calc(100% - 1rem);
   overflow: hidden;
 }
+
+.allsides-3 > picture > img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transform: scale(2);
+  object-fit: contain;
+  /* 効かない 画像自体を動かせない */
+  /* object-position: 50% 50%; */
+}
+
 /* -------------------------------------------------------- */
+
+.flexible-one {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70vh;
+}
+
+.button-border {
+  display: inline-block;
+  position: relative;
+  padding: 20px 40px;
+  color: #3498db;
+  background-color: #f5f5f5;
+  border: 1px solid #eee;
+}
+
+/* Effect1
+ *************************************** */
+/* 擬似要素の共通スタイル */
+.button-border::after,
+.button-border::before,
+.button-border span::after,
+.button-border span::before {
+  display: block;
+  position: absolute;
+  content: '';
+  background-color: #3498db;
+  transition: .3s ease;
+  z-index: 10;
+}
+
+/* 左上へ配置 */
+.button-border::after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  top: -1px;
+  left: -1px;
+}
+
+/* 右下へ配置 */
+.button-border::before {
+  content: "";
+  width: 0px;
+  height: 2px;
+  right: -1px;
+  bottom: -1px;
+}
+
+/* 左下へ配置 */
+.button-border span::after {
+  content: "";
+  width: 2px;
+  height: 0px;
+  left: -1px;
+  bottom: -1px;
+}
+
+/* 右上へ配置 */
+.button-border span::before {
+  content: "";
+  width: 2px;
+  height: 0px;
+  top: -1px;
+  right: -1px;
+}
+
+/* hover */
+.button-border:hover::after,
+.button-border:hover::before {
+  width: 100%;
+  width: calc(100% + 1px);
+}
+
+.button-border:hover span::after,
+.button-border:hover span::before {
+  height: 100%;
+  height: calc(100% + 1px);
+}
+
+/* -------------------------------------------------------- */
+
 .sample-border-effect {
   width: 100%;
   margin: 0 auto;
@@ -168,82 +297,46 @@ dl {
   transform: scale(1.7);
 }
 
-/* 
-.border {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  font-size: 18px;
-  width: 20rem;
-  height: 20rem;
-  margin-bottom: 3rem;
-  padding: 1rem;
-  outline: 1px solid #333;
+/* -------------------------------------------------------- */
+
+.remove-letter-spacing {
+  letter-spacing: normal;
 }
 
-.border > article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  gap: 1rem;
+}
+
+.wrapper dt {
+  position: relative;
+}
+
+.wrapper h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  font-size: .9rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: .5rem;
+  color: #fff;
+  text-shadow: 0 0 10px #333;
+}
+
+.wrapper picture {
+  display: block;
+  position: relative;
+  padding: .25rem;
   width: 100%;
   height: 100%;
-  background-color: #ddd;
+  border: 1px solid #ccc;
+  overflow: hidden;
 }
-
-.border:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 0;
-  border-top: solid 2px #000;
-  transform: translateX(-50%);
-  animation: border_anim 3s linear forwards;
-}
-
-.border:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  border-bottom: solid 2px #000;
-  transform: translateX(-50%);
-  animation: border_anim 3s linear forwards;
-}
-
-.border:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 0;
-  border-top: solid 2px #000;
-  transform: translateX(-50%);
-  animation: border_anim 3s linear forwards;
-}
-
-.border:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  border-bottom: solid 2px #000;
-  transform: translateX(-50%);
-  animation: border_anim 3s linear forwards;
-}
-
-@keyframes border_anim {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 100%;
-  }
-} */
 
 .wrapper img {
   width: 100%;
@@ -273,4 +366,3 @@ dl {
   line-height: 1.5em;
   text-indent: 1em;
 }
-
