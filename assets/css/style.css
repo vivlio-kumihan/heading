@@ -6,139 +6,69 @@ html {
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  line-height: 1.7;
-  color: #555;
+  line-height: 1;
+  color: #333;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1050px;
   height: 100vh;
   margin: 0 auto;
   padding: 5rem;
   background-color: #eee;
 }
 
-.colored-box {
-  width: 5rem;
-  height: 5rem;
-  margin: 0 auto;
-  background-color: #999;
-  border-radius: .3rem;
+.remove-letter-spacing {
+  letter-spacing: normal;
 }
 
-.colored-box:not(:first-of-type) {
-  margin-top: 3rem;
+dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  gap: 1rem;
 }
 
-.transformation {
-  /* 回転 */
-  /* transform: rotate(45deg); */
-  /* 拡大・縮小 */
-  /* transform: scale(2, .5); */
-  /* 歪み */
-  /* transform: skewY(-45deg); */
-  /* transform: scale(.5); */
-}
-
-/* .translation用 */
-/* .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 900px;
-  height: 100vh;
-  margin: 0rem auto;
-  background-color: #eee;
-} */
-
-/* 元の領域を保ったまま移動 */
-/* .colored-box.translation {
-  transform: translate(20rem, 20rem);
-} */
-
-/* .fixed用 */
-/* .container {
-  position: relative;
-  
-  max-width: 900px;
-  margin: 0rem auto;
-  background-color: #eee;
-} */
-
-/* 元の領域を失って移動 */
-/* .colored-box.fixed {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  border-radius: 50%;
-} */
-
-.diamond {
-  width: 10rem;
-  height: 10rem;
-  margin: -1rem auto;
-  border-left: 3.5rem solid #999;
-  border-bottom: 3.5rem solid #999;
-  transform: rotate(-45deg) skew(10deg, 10deg);
-  border-radius: .7rem;
-}
-
-.heading.one {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 3rem;
-  font-size: 2rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.paren.left,
-.paren.right {
+.wrapper dt {
   position: relative;
 }
 
-.paren.left>.line.bold,
-.paren.left>.line.thin,
-.paren.right>.line.thin,
-.paren.right>.line.bold {
+.wrapper h2 {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  font-size: .9rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: .5rem;
+  color: #fff;
+
+  text-shadow: 0 0 10px #333;
 }
 
-.paren>.line {
-  width: 3rem;
-  height: 3rem;
-  transform: rotate(45deg) skew(7deg, 7deg);
+.wrapper picture {
+  display: block;
+  padding: .25rem;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  overflow: hidden;
 }
 
-.paren.left>.bold {
-  top: -6.5rem;
-  left: -5rem;
-  margin: 5rem auto;
-  border-left: .7rem solid #555;
-  border-bottom: .7rem solid #555;
+.wrapper img {
+  width: 100%;
+  transition: .5s;
 }
 
-.paren.left>.thin {
-  top: -6.5rem;
-  left: -3.5rem;
-  margin: 5rem auto;
-  border-left: .3rem solid #555;
-  border-bottom: .3rem solid #555;
+.wrapper dd {
+  margin-top: .75rem;
+  line-height: 1.5em;
+  text-indent: 1em;
 }
 
-.paren.right>.bold {
-  top: -6.5rem;
-  right: -5rem;
-  margin: 5rem auto;
-  border-top: .7rem solid #555;
-  border-right: .7rem solid #555;
-}
-
-.paren.right>.thin {
-  top: -6.5rem;
-  right: -3.5rem;
-  margin: 5rem auto;
-  border-top: .3rem solid #555;
-  border-right: .3rem solid #555;
+.hover-dark {
+  padding: .25rem;
+  transform: scale(1.2);
 }
