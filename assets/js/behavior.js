@@ -9,9 +9,9 @@ for (let heading of headingTwo) {
 let pictures = document.querySelectorAll(".wrapper picture")
 for (let picture of pictures) {
   picture.addEventListener("mouseenter", function() {
-    this.firstElementChild.classList.add("hover-dark")
+    this.classList.add("cover")
   })
   picture.addEventListener("mouseleave", function() {
-    this.firstElementChild.classList.remove("hover-dark")
+    this.classList.remove("cover")
   })
 }
