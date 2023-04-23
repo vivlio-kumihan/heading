@@ -14,9 +14,116 @@ body {
   max-width: 1050px;
   height: 100vh;
   margin: 0 auto;
-  padding: 5rem;
+  /* padding: 5rem; */
   background-color: #eee;
 }
+
+#gradient-header-sample {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+#gradient-header-sample > h2{
+  font-size: 2rem;
+  line-height: 1em;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* MDNに載っているlinear-gradientの書き方 */
+/* #gradient-header-sample.basic-zero {
+  width: 20rem;
+  height: 20rem;
+  background: linear-gradient(45deg, red, blue);
+  background: linear-gradient(to left bottom, red, blue);
+  background: linear-gradient(180deg, red, green 40%, blue);
+  background: linear-gradient(.325turn, red, 50%, blue);
+  background: linear-gradient(180deg, red 0 50%, blue 50% 100%);
+} */
+
+/* MDNには載っていない書き方を順に説明する */
+/* 考え方 #1 */
+/* 
+  選択範囲の背景を現状のcolorで塗りつぶす 
+*/
+/* #gradient-header-sample.basic-one {
+  background: linear-gradient(currentColor 0 0);
+} */
+
+/* 考え方 #2 */
+/* 
+  5等分した選択範囲を5行作ってそれぞれに架線をひく
+  100％を5等分して一つの長さは20％
+  Index0から始まり、Index0, Index1, Index2, Index3, Index4までの
+  4つの区域の先頭の値は、
+  0 × 25％ ＝ 0%
+  1 × 25％ ＝ 25%
+  2 × 25％ ＝ 50%
+  3 × 25％ ＝ 75%
+  4 × 25％ ＝ 100%
+  選択範囲の上辺から下に向かって100％のところ
+  長さは20％ これでそれぞれの選択範囲に下線がひける 
+*/
+#gradient-header-sample.basic-zero {
+  background: linear-gradient(currentColor 0 0)
+  0% 100%/20% 3px no-repeat;
+}
+#gradient-header-sample.basic-twofive {
+  background: linear-gradient(currentColor 0 0)
+  25% 100%/20% 3px no-repeat;
+}
+#gradient-header-sample.basic-half {
+  background: linear-gradient(currentColor 0 0)
+  50% 100%/20% 3px no-repeat;
+}
+#gradient-header-sample.basic-fourthird {
+  background: linear-gradient(currentColor 0 0)
+  75% 100%/20% 3px no-repeat;
+}
+#gradient-header-sample.basic-full {
+  background: linear-gradient(currentColor 0 0)
+  100% 100%/20% 3px no-repeat;
+}
+
+/* 考え方 #3 */
+/* 
+1行目 => 選択範囲を指定の塗り色で塗りつぶします。
+2行目 => 
+支点は左辺から右辺に向けて0％の位置で、
+選択範囲の上辺から下に向かって100％のところ
+長さは、
+変数に指定がなければ、100％
+これで選択範囲の3pxの下線がひける。
+*/
+#gradient-header-sample.basic-one {
+  background: linear-gradient(currentColor 0 0)
+  0% 100%/var(--d, 100%) 3px no-repeat; 
+}
+
+
+/* 考え方　結論 */
+/* 
+  1行目 => 選択範囲を指定の塗り色で塗りつぶします。
+  2行目 => 
+  支点は左辺から右辺に向けて0％の位置で、
+  選択範囲の上辺から下に向かって100％のところ
+  長さは、
+  変数に指定がなければ、0％、つまり線の塗りを無くす
+  ホバーをトリガーにして、
+  選択範囲に3pxの下線がひける。
+*/
+#gradient-header-sample.basic-two {
+  background: linear-gradient(currentColor 0 0)
+  0% 100%/var(--d, 0%) 3px no-repeat; 
+}
+#gradient-header-sample.basic-two:hover {
+  --d: 100%;
+}
+
 
 .flexible-three {
   width: 100%;
