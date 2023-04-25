@@ -12,7 +12,7 @@ body {
 
 .container {
   max-width: 1050px;
-  height: 100vh;
+  height: 220vh;
   margin: 0 auto;
   /* padding: 5rem; */
   background-color: #eee;
@@ -51,7 +51,7 @@ body {
   選択範囲の背景を現状のcolorで塗りつぶす 
 */
 /* #gradient-header-sample.basic-one {
-  background: linear-gradient(currentColor 0 0);
+    background: linear-gradient(currentColor 0 0);
 } */
 
 /* 考え方 #2 */
@@ -70,23 +70,23 @@ body {
 */
 #gradient-header-sample.basic-zero {
   background: linear-gradient(currentColor 0 0)
-  0% 100%/20% 3px no-repeat;
+              0% 100%/20% 3px no-repeat;
 }
 #gradient-header-sample.basic-twofive {
   background: linear-gradient(currentColor 0 0)
-  25% 100%/20% 3px no-repeat;
+              25% 100%/20% 3px no-repeat;
 }
 #gradient-header-sample.basic-half {
   background: linear-gradient(currentColor 0 0)
-  50% 100%/20% 3px no-repeat;
+              50% 100%/20% 3px no-repeat;
 }
 #gradient-header-sample.basic-fourthird {
   background: linear-gradient(currentColor 0 0)
-  75% 100%/20% 3px no-repeat;
+              75% 100%/20% 3px no-repeat;
 }
 #gradient-header-sample.basic-full {
   background: linear-gradient(currentColor 0 0)
-  100% 100%/20% 3px no-repeat;
+              100% 100%/20% 3px no-repeat;
 }
 
 /* 考え方 #3 */
@@ -101,7 +101,7 @@ body {
 */
 #gradient-header-sample.basic-one {
   background: linear-gradient(currentColor 0 0)
-  0% 100%/var(--d, 100%) 3px no-repeat; 
+              0% 100%/var(--d, 100%) 3px no-repeat; 
 }
 
 
@@ -109,21 +109,114 @@ body {
 /* 
   1行目 => 選択範囲を指定の塗り色で塗りつぶします。
   2行目 => 
-  支点は左辺から右辺に向けて0％の位置で、
-  選択範囲の上辺から下に向かって100％のところ
-  長さは、
-  変数に指定がなければ、0％、つまり線の塗りを無くす
-  ホバーをトリガーにして、
-  選択範囲に3pxの下線がひける。
+  始点は0％の位置で、
+  高さは、選択範囲の上辺から下に向かって100％のところ
+  長さは、変数に指定がなければ、0％の場所を始点として
+  ホバーをトリガーに、100%の選択範囲へ3pxの下線が拡がっていく。
 */
 #gradient-header-sample.basic-two {
   background: linear-gradient(currentColor 0 0)
-  0% 100%/var(--d, 0%) 3px no-repeat; 
+              0% 100%/var(--d, 0%) 3px no-repeat;
 }
 #gradient-header-sample.basic-two:hover {
   --d: 100%;
 }
 
+/*  ここまでがベース。ここから線の出方を変えていく。
+    まずは、transitionをかける。 */
+#gradient-header-sample.basic-three {
+  background: linear-gradient(currentColor 0 0)
+              0% 100%/var(--d, 0%) 3px no-repeat;
+  transition: .5s;
+}
+#gradient-header-sample.basic-three:hover {
+  --d: 100%;
+}
+
+/*  横位置100％の地点を始点として
+    ホバーをトリガーに、100%の選択範囲へ3pxの下線が拡がっていく。
+    つまり、右から左へ線が引ける。 */
+#gradient-header-sample.basic-four {
+  background: linear-gradient(currentColor 0 0)
+              100% 100%/var(--d, 0%) 3px no-repeat;
+  transition: .5s;
+}
+#gradient-header-sample.basic-four:hover {
+  --d: 100%;
+}
+
+/*  横位置50％の地点を始点として
+    ホバーをトリガーに、100%の選択範囲へ3pxの下線が拡がっていく。
+    つまり、中央から両橋にかけて線が引ける。 */
+#gradient-header-sample.basic-five {
+  background: linear-gradient(currentColor 0 0)
+              50% 100%/var(--d, 0%) 3px no-repeat;
+  transition: .5s;
+}
+#gradient-header-sample.basic-five:hover {
+  --d: 100%;
+}
+
+/* 理屈が全く理解できない。
+ホバー時の始点の移動 var(--p, 0%) hover=> --p: 100%;
+それと、background-position 0s 0.5s */
+#gradient-header-sample.basic-six {
+  background: linear-gradient(currentColor 0 0) 
+              var(--p, 0%) 100%/var(--d, 0%) 3px no-repeat;
+  transition: .5s, background-position 0s 0.5s;
+}
+#gradient-header-sample.basic-six:hover {
+  --d: 100%;
+  --p: 100%;
+}
+
+/* basic-sixでの罫線を最初に表示させておいてホバーで消すに変更してみる。 */
+#gradient-header-sample.basic-seven {
+  background: linear-gradient(currentColor 0 0) 
+              var(--p, 100%) 100%/var(--d, 100%) 3px no-repeat;
+  transition: .5s, background-position 0s 0.5s;
+}
+#gradient-header-sample.basic-seven:hover {
+  --d: 0%;
+  --p: 0%;
+}
+
+/* basic-six, basic-sevenの逆バージョン */
+#gradient-header-sample.basic-eight {
+  background: linear-gradient(currentColor 0 0) 
+              var(--p, 100%) 100%/var(--d, 0%) 3px no-repeat;
+  transition: .5s, background-position 0s 0.5s;
+}
+#gradient-header-sample.basic-eight:hover {
+  --d: 100%;
+  --p: 0%;
+}
+
+/* basic-eightでの罫線を最初に表示させておいてホバーで消すに変更してみる。 */
+#gradient-header-sample.basic-nine {
+  background: linear-gradient(currentColor 0 0) 
+              var(--p, 0%) 100%/var(--d, 100%) 3px no-repeat;
+  transition: .5s, background-position 0s 0.5s;
+}
+#gradient-header-sample.basic-nine:hover {
+  --d: 0%;
+  --p: 100%;
+}
+
+/*  横位置50％の地点を始点として
+    ホバーをトリガーに、100%の選択範囲へ3pxの下線が拡がっていく。
+    つまり、中央から両橋にかけて線が引ける。 */
+#gradient-header-sample.basic-ten {
+  background: linear-gradient(currentColor 0 0) 
+              50% 100%/var(--d, 5%) 3px no-repeat;
+  transition: .5s;
+}
+
+#gradient-header-sample.basic-ten:hover {
+  --d: 100%;
+}
+
+/* -------------------------------------------------------- */
 
 .flexible-three {
   width: 100%;
