@@ -12,16 +12,49 @@ body {
 
 .container {
   max-width: 1000px;
-
-  padding: 0rem 2rem;
-  height: 50vh;
   margin: 20rem auto 0;
+  text-align: center;
 }
 
-h2 {
-  padding: 0.5em;
-  color: #010079;
-  text-shadow: 0 0 5px white;
-  /* ストライプの角度、開始色、開始色＋開始色の終了地点、２色目の色＋２色目の開始地点、２色目の終了地点 */
-  background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px, #e9f4ff 3px, #e9f4ff 7px);
+.speech-balloons {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 8rem;
+  padding: .75em 2em;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #333;
+  border: 6px solid #555;
+  white-space: nowrap;
+}
+
+.speech-balloons::before,
+  .speech-balloons::after {
+  position: absolute;
+  bottom: -5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 3rem;
+  height: 5rem;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.speech-balloons::before {
+  background-color: #555;
+}
+
+.speech-balloons::after {
+  clip-path: polygon(15% 0, 50% 75%, 85% 0%);
+  background-color: #fff;
+}
+
+.stripe-bg {
+  position: absolute;
+  top: -1rem;
+  left: 1rem;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, yellow, yellow .8rem, #fff .8rem, #fff 1.6rem);
+  z-index: -1;
 }
