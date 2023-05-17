@@ -16,45 +16,49 @@ body {
   text-align: center;
 }
 
-.speech-balloons {
-  display: inline-block;
+.header {
   position: relative;
-  margin-bottom: 8rem;
-  padding: .75em 2em;
   font-size: 3rem;
-  font-weight: 500;
+  line-height: 1em;
+  display: inline-block;
+  padding: .75em 4em;
+  font-weight: 700;
   color: #333;
-  border: 6px solid #555;
-  white-space: nowrap;
+  border: .5rem solid #555;
 }
 
-.speech-balloons::before,
-  .speech-balloons::after {
-  position: absolute;
-  bottom: -5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  content: "";
-  width: 3rem;
-  height: 5rem;
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
-}
-
-.speech-balloons::before {
-  background-color: #555;
-}
-
-.speech-balloons::after {
-  clip-path: polygon(15% 0, 50% 75%, 85% 0%);
-  background-color: #fff;
-}
-
-.stripe-bg {
+.header::before {
   position: absolute;
   top: -1rem;
-  left: 1rem;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(-45deg, yellow, yellow .8rem, #fff .8rem, #fff 1.6rem);
+  left: 2em;
+  content: "";
+  width: 2em;
+  height: 1.5rem;
+  border-top: px solid yellow;
+  background-color: yellow;
+  z-index: 2;
+}
+
+.header::after {
+  position: absolute;
+  bottom: -0.4em;
+  right: -0.4em;
+  content: "";
+  width: 95%;
+  height: 95%;
+  border-right: .3rem solid #555;
+  border-bottom: .3rem solid #555;
   z-index: -1;
+}
+
+.header > span {
+  position: absolute;
+  content: "";
+  top: -2rem;
+  left: 6rem;
+  height: 3rem;
+  padding: 0 1rem;
+  font-size: 4rem;
+  font-weight: 400;
+  z-index: 3;
 }
