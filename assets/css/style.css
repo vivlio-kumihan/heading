@@ -1,64 +1,57 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;900&display=swap');
 
 html {
-  font-size: 15px;
+  font-size: 93.75%;
+  scroll-behavior: smooth;
+  /*  ページ先頭の要素に付ける。戻る位置を調整してくれる。
+      scroll-margin-top: 80px;  */
 }
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
-  line-height: 1;
-  color: #333;
+  line-height: 1.7;
+  color: #555;
 }
 
 .container {
-  max-width: 1000px;
-  margin: 20rem auto 0;
+  max-width: 1050px;
+  width: 100%;
+  margin: 150px auto 0;
   text-align: center;
 }
 
-.header {
+h2 {
   position: relative;
-  font-size: 3rem;
-  line-height: 1em;
-  display: inline-block;
-  padding: .75em 4em;
-  font-weight: 700;
-  color: #333;
-  border: .5rem solid #555;
-}
-
-.header::before {
-  position: absolute;
-  top: -1rem;
-  left: 2em;
-  content: "";
-  width: 2em;
-  height: 1.5rem;
-  border-top: px solid yellow;
-  background-color: yellow;
-  z-index: 2;
-}
-
-.header::after {
-  position: absolute;
-  bottom: -0.4em;
-  right: -0.4em;
-  content: "";
-  width: 95%;
-  height: 95%;
-  border-right: .3rem solid #555;
-  border-bottom: .3rem solid #555;
-  z-index: -1;
-}
-
-.header > span {
-  position: absolute;
-  content: "";
-  top: -2rem;
-  left: 6rem;
-  height: 3rem;
-  padding: 0 1rem;
   font-size: 4rem;
-  font-weight: 400;
-  z-index: 3;
+  line-height: 1;
+  font-weight: 700;
+  padding: .5em 2em;
+  background-color: yellow;
+  border: .3rem solid #333;
+  border-right: 1rem solid #333;
+  border-bottom: 1rem solid #333;
+
+}
+
+h2::before,
+h2::after {
+  position: absolute;
+  content: "";
+  width: 1rem;
+  scale: 1.5;
+  background-color: #fff;
+}
+h2::before {
+  bottom: -1.2rem;
+  left: -0.3rem;
+  height: 1rem;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+h2::after {
+  top: -0.3rem;
+  right: -1rem;
+  height: 1rem;
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
 }
